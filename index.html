@@ -4,7 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="google-adsense-account" content="ca-pub-2162864292711601">
-  <title>Wapas – the meme that catches you mid-scroll</title>
+  <title>Wapas – Build More Intentional Scrolling Habits</title>
+  <meta name="description" content="Wapas is a social scrolling awareness tool that helps you set personal reel and app-time limits, notice your habits, and return to what matters.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -350,6 +352,20 @@
       color: var(--muted)
     }
 
+
+    /* Helpful editorial content */
+    .guides { padding: 64px 0 24px; }
+    .guides h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); letter-spacing: -.04em; margin-bottom: 14px; }
+    .guides-intro { color: var(--muted); max-width: 70ch; margin-bottom: 26px; }
+    .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .guide-card { background: var(--card); border: 2px solid var(--line); border-radius: 22px; padding: 24px; }
+    .guide-card h3 { font-size: 1.25rem; line-height: 1.15; margin-bottom: 12px; }
+    .guide-card p { color: var(--muted); }
+    .guide-note { margin-top: 18px; padding: 20px 22px; border-radius: 18px; background: var(--card); border: 2px solid var(--line); color: var(--muted); }
+    .site-links { display:flex; flex-wrap:wrap; gap:14px 22px; margin-top:16px; }
+    .site-links a { color: var(--muted); }
+    @media (max-width:860px) { .guide-grid { grid-template-columns:1fr; } }
+
     /* form */
     .join {
       display: grid;
@@ -564,7 +580,7 @@
 <body>
   <header class="hero">
     <div class="wrap">
-      <nav><span>Wapas</span><a href="#join">Join early list</a></nav>
+      <nav><span>Wapas</span><div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap"><a href="#how-it-works">How it works</a><a href="#guides">Guides</a><a href="#join">Join early list</a></div></nav>
       <div class="grid">
         <div>
           <h1>Caught mid-scroll by a <em>meme.</em></h1>
@@ -593,7 +609,7 @@
   </header>
 
   <main class="wrap">
-    <section class="how">
+    <section class="how" id="how-it-works">
       <div>
         <h3>You choose the limit</h3>
         <p>Decide how many reels you allow yourself, and how many minutes each app gets in a day.</p>
@@ -606,6 +622,39 @@
         <h3>A meme interrupts you</h3>
         <p>A random meme covers the screen. Ignore it, and the next one arrives after fewer reels.</p>
       </div>
+    </section>
+
+
+    <section class="guides" id="guides" aria-labelledby="guides-title">
+      <h2 id="guides-title">A more intentional way to use social apps</h2>
+      <p class="guides-intro">Short-form video can be entertaining, useful, and a way to discover new ideas. The challenge is that one video can lead to another before we have decided how long we want to stay. A practical approach is not to treat every app as bad, but to make our time and attention more intentional.</p>
+      <div class="guide-grid">
+        <article class="guide-card">
+          <h3>1. Decide your purpose before opening an app</h3>
+          <p>Pause for a moment and name what you came to do: reply to a message, watch a tutorial, or take a short break. A clear purpose gives you a natural point to stop when that task is finished.</p>
+        </article>
+        <article class="guide-card">
+          <h3>2. Choose a realistic time boundary</h3>
+          <p>Pick a limit that fits your day rather than copying someone else’s routine. Start with a manageable boundary, notice how it feels over several days, and adjust it when your schedule changes.</p>
+        </article>
+        <article class="guide-card">
+          <h3>3. Make the next action easy</h3>
+          <p>Before you start scrolling, decide what you will do afterwards. Keep a book, study task, walk, or household activity ready so that stopping does not leave you wondering what to do next.</p>
+        </article>
+        <article class="guide-card">
+          <h3>4. Review patterns without judging yourself</h3>
+          <p>Look at when you tend to open an app and what you were doing beforehand. Use that information to change a routine or notification setting; treat it as feedback, not a score of personal success.</p>
+        </article>
+        <article class="guide-card">
+          <h3>5. Use app limits as reminders</h3>
+          <p>A timer or reminder can create a useful pause, but it cannot make decisions for you. If a limit is not working, make it more realistic and combine it with a specific offline activity.</p>
+        </article>
+        <article class="guide-card">
+          <h3>6. Protect time for rest</h3>
+          <p>Taking a break is normal. Try to keep some screen-free time around sleep, meals, and activities that matter to you. The aim is a balanced routine, not eliminating entertainment.</p>
+        </article>
+      </div>
+      <div class="guide-note"><strong>What Wapas does:</strong> Wapas is an early-stage tool concept. Its browser extension can count supported reel and short-video pages and track time while a supported site tab is visible and focused. It is designed to provide a reminder, not to diagnose or treat any health condition. Browser extensions do not track activity inside native mobile apps.</div>
     </section>
 
     <section class="join" id="join">
@@ -660,7 +709,7 @@
     </section>
   </main>
   <div class="wrap">
-    <footer>Wapas is an early idea. Answers are stored securely and are not shown publicly.</footer>
+    <footer><p>Wapas is an early-stage project. The website signup form collects the details described in our <a href="privacy.html">Privacy Policy</a> so we can understand interest in the product. Signup is optional.</p><nav class="site-links" aria-label="Footer navigation"><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav><p style="margin-top:16px">© <span id="year"></span> Wapas. All rights reserved.</p></footer>
   </div>
 
   <script>
@@ -702,6 +751,8 @@
       setTimeout(() => { timer = setInterval(() => { if (vis) step(); }, 850); }, 600);
       $("note").textContent = "Skip a meme and the next one comes sooner (10, then 8, then 6).";
     }
+
+    const yearNode = document.getElementById("year"); if (yearNode) yearNode.textContent = new Date().getFullYear();
 
     /* cost calculator */
     const rs = [...document.querySelectorAll("input[type=range]")];
